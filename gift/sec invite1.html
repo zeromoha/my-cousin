@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوة لحفل زفاف</title>
+    <link rel="stylesheet" href="sec invt.css">
+</head>
+<body>
+    <div class="falling-leaves"></div>
+    <div class="invitation-card">
+        <div class="flowers-top">
+            <div class="flower"></div>
+            <div class="flower"></div>
+        </div>
+        <h1>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</h1>
+        <p>﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ﴾</p>
+        <p><span id="bride">العروس:H</span> <span id="groom">العريس: حسام و</span></p>
+        <p>الليلة ليلة زفتنا ويا هلا بكل أحبتنا حضوركم بيننا يسعدنا ويزيد من فرحتنا ونشكر كل من يشاركنا ويلبي الليلة دعوتنا. عبارات عن دعوة زواج دعوتكم وحضوركم هما أجمل حياة فرحتي عامرة والكون ينور في ضياه. أحمد الله وأثني عليه أن جمعني بتوأم روحي، فإن أحببتم أن تكونوا شاهدين على سعادتنا، اجعلوا وجودكم يفرحنا.</p>
+        <p>التاريخ: 26 يوليو 2024</p>
+        <p>المكان: قاعة ريفان</p>
+        <input type="text" id="nameInput" placeholder="أدخل اسمك">
+        <button id="rsvpButton">تأكيد الحضور</button>
+        <p id="confirmationMessage" style="display: none;"></p>
+        <div class="flowers-bottom">
+            <div class="flower"></div>
+            <div class="flower"></div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('rsvpButton').addEventListener('click', function() {
+    var name = document.getElementById('nameInput').value;
+    if (name) {
+        var confirmationMessage = document.getElementById('confirmationMessage');
+        confirmationMessage.textContent = 'شكراً لتأكيد حضورك يا ' + name + '! نحن نتطلع لرؤيتك.';
+        confirmationMessage.style.display = 'block';
+    } else {
+        alert('يرجى إدخال اسمك.');
+    }
+});
+
+function createLeaf() {
+    var leaf = document.createElement('div');
+    leaf.classList.add('leaf');
+    leaf.style.left = Math.random() * 100 + 'vw';
+    leaf.style.animationDuration = Math.random() * 3 + 2 + 's';
+    document.querySelector('.falling-leaves').appendChild(leaf);
+
+    setTimeout(() => {
+        leaf.remove();
+    }, 5000);
+}
+
+setInterval(createLeaf, 300);
+
+
+// Function to change background color every 5 seconds
+function changeBackgroundColor() {
+    var index = 0;
+    setInterval(function() {
+        document.body.style.background = colors[index];
+        index = (index + 1) % colors.length;
+    }, 5000);
+}
+
+// Call the function to start changing background color
+changeBackgroundColor();
+
+        
+    </script>
+</body>
+</html>
